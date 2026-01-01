@@ -1,6 +1,6 @@
 {
   "name": "@umituz/react-native-media",
-  "version": "1.3.5",
+  "version": "1.3.6",
   "description": "Media picking capabilities for React Native apps - Images, videos from camera and gallery",
   "main": "./src/index.ts",
   "types": "./src/index.ts",
