@@ -1,14 +1,20 @@
 /**
- * @umituz/react-native-media - Public API
+ * @umituz/react-native-media - Enhanced Public API
  *
  * Media picking capabilities for React Native apps
- * Provides images, videos from camera and gallery
+ * Includes multimedia flashcard support
  *
  * Usage:
- *   import { useMedia, MediaPickerService, MediaType, MediaQuality } from '@umituz/react-native-media';
+ *   import {
+ *     useMedia,
+ *     useMultimediaFlashcard,
+ *     MultimediaFlashcardService,
+ *     type MediaAttachment,
+ *     type MultimediaFlashcard,
+ *   } from '@umituz/react-native-media';
  */
 
-// Domain Layer - Entities
+// Domain Layer - Original Media Entities
 export type {
   MediaAsset,
   MediaPickerResult,
@@ -17,9 +23,6 @@ export type {
   ImageDimensions,
   ImageManipulationActions,
   ImageSaveOptions,
-} from "./domain/entities/Media";
-
-export {
   MediaType,
   ImageFormat,
   MediaQuality,
@@ -29,8 +32,36 @@ export {
   MediaUtils,
 } from "./domain/entities/Media";
 
-// Infrastructure Layer - Services
+// Infrastructure Layer - Original Media Services
 export { MediaPickerService } from "./infrastructure/services/MediaPickerService";
+export { MediaSaveService } from "./infrastructure/services/MediaSaveService";
+export type { SaveResult, SaveOptions } from "./infrastructure/services/MediaSaveService";
 
-// Presentation Layer - Hooks
+// Presentation Layer - Original Media Hooks
 export { useMedia } from "./presentation/hooks/useMedia";
+
+// Multimedia Flashcard Support
+export type {
+  CardMediaType,
+  CardMediaPosition,
+  CardMediaAttachment,
+  CardMultimediaFlashcard,
+  CardMediaGenerationRequest,
+  CardMediaGenerationResult,
+  CardMediaUploadProgress,
+  CardMediaCompressionOptions,
+  CardMediaValidation,
+} from "./domain/entities/CardMultimedia.types";
+
+export { CardMultimediaFlashcardService } from "./infrastructure/services/CardMultimediaService";
+
+export {
+  useCardMediaUpload,
+  useCardMediaGeneration,
+  useCardMediaValidation,
+  useCardMultimediaFlashcard,
+  type UseCardMediaUploadResult,
+  type UseCardMediaGenerationResult,
+  type UseCardMediaValidationResult,
+  type UseCardMultimediaFlashcardResult,
+} from "./presentation/hooks/useCardMultimediaFlashcard";
